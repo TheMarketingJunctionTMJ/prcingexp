@@ -1,3 +1,4 @@
+import os
 from typing import Dict, List
 
 import pandas as pd
@@ -18,8 +19,8 @@ init_db()
 BINANCE_FUTURES_EXCHANGE_INFO = "https://fapi.binance.com/fapi/v1/exchangeInfo"
 BINANCE_FUTURES_MARK_PRICES = "https://fapi.binance.com/fapi/v1/premiumIndex"
 
-LOGIN_USERNAME = "rahim"
-LOGIN_PASSWORD = "rahim123"
+LOGIN_USERNAME = st.secrets.get("APP_USERNAME", os.getenv("APP_USERNAME", "rahim"))
+LOGIN_PASSWORD = st.secrets.get("APP_PASSWORD", os.getenv("APP_PASSWORD", "rahim123"))
 
 REQUEST_TIMEOUT = 20
 AUTO_REFRESH_MS = 3000  # 3 seconds; safer for Streamlit Cloud than 2 seconds
